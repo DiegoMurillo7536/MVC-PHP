@@ -27,7 +27,7 @@
     <td><?php echo $book->id ?></td>
     <td><?php echo $book->nombre ?></td>
     <td><a href="editBooks.php?id=<?php echo $book->id?>">Editar</a> </td>
-    <td><a href="editBooks.php?id=<?php echo $book->id?>">Eliminar</a> </td>
+    <td><a href="deleteBooks.php?delete=<?php echo $book->id?>">Eliminar</a> </td>
     </tr>
     <?php
     }

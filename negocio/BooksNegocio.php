@@ -35,21 +35,30 @@ class BooksNegocio extends conexion{
     }
 
   }
+  public function editBook($Book){
+    $stm=null;
+    try {
+      //code...
+      $stm=$this->pdo->prepare("UPDATE usuario set nombre=? where id=?");
+      $stm->execute(array($Book->getNombre(),$Book->getId()));
+      header("location:../vista/listBooks.php");
+    } catch (\Throwable $th) {
+      //throw $th;
+    }  
+  }
 
-  public function editBooks($Book){
-  $stm=null;
-  try {
-  
-    $stm=$this->pdo->prepare("UPDATE usuario SET nombre=? WHERE id=?;");
-    $stm=$th->pdo->execute(array($Book->getNombre(),$Book->getId()));
-    header('location:../vista/listBooks.php');
-  } catch (PDOException $e) {
-    die($e->getMessage());
+  public function deletebook($Book)
+  {
+    # code...
+    $stm=null;
+    try {
+      //code...
+      $stm=$this->pdo->prepare("DELETE FROM usuario where id=?");
+      $stm->execute(array($Book->getId()));
+      header('location:../vista/listBooks.php');
+    } catch (\Throwable $th) {
+      //throw $th;
     }
   }
 
-  public function deleteBooks($Book){
-    $stm=$this->pdo->prepare("DELETE FROM usuario WHERE id=?;");
-    $stm=$th->pdo->execute(array($Book->getId()))
-  }
 }

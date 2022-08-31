@@ -8,12 +8,14 @@
 </head>
 <body>
     <?php 
-    require_once '../controller/BooksController.php';
+    require_once('../controller/BooksController.php');
+    $id=$_REQUEST['id'];
     ?>
 <form method="post" action="../controller/BooksController.php">
     Editar usuario
     
-    Nombre:<input type="text" name="nombreupdate" ><br>
+    <input type="hidden" name="id" value="<?php echo $id ?>">
+    Nombre:<input type="text" name="nombreupdate"><br>
     
 
     <input type="submit" value="Actualizar" name="guardar" ><br>

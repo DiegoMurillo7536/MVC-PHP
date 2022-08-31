@@ -24,23 +24,22 @@ class BooksController{
      $book->setNombre($_REQUEST['nombre']);
      $pdBook->addBooks($book); 
     }
-
-    function editBook(){
+    public function editBook()
+    {
+     # code...
      $book=new Book();
      $pdBook=new BooksNegocio();
      $book->setNombre($_REQUEST['nombreupdate']);
      $book->setId($_REQUEST['id']);
-     $pdBook->editBooks($book);
+     $pdBook->editBook($book);
+    }
 
-     }
-
-     function deleteBook(){
+    function deleteBook(){
      $book=new Book();
      $pdBook=new BooksNegocio();
-     $book->setId($_REQUEST['id']);
-     $pdBook->deleteBook($book);     
-     }
-
+     $book->setId($_REQUEST['delete']);
+     $pdBook->deleteBook($book);
+    }
 
 }
 
@@ -51,12 +50,15 @@ if (isset($_REQUEST['nombre'])) {
      $book->createBook();
 }
 if (isset($_REQUEST['nombreupdate'])) {
+     # code...
      $book->editBook();
 }
 
-if(isset($_REQUEST['id'])){
+if (isset($_REQUEST['delete'])) {
+     # code...
      $book->deleteBook();
 }
+
 
 
 
